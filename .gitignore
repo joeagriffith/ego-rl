@@ -1,0 +1,10 @@
+# Ignore all data/statistics files
+**/models/
+**/mmr_models/
+**/logs/
+
+# Ignore all .pyc files
+*.pyc
+
+# Ignore all ipynb checkpoints
+**/.ipynb_checkpoints/

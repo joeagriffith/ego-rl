@@ -26,6 +26,7 @@ class EgocentricObs(ObsBuilder):
             ball = state.ball
 
         ob = []
+
         # Previous action and player data (has_flip, boost, on_ground)
         ob.append(prev_action)
         ob.append([int(player.has_flip),
@@ -67,7 +68,6 @@ class EgocentricObs(ObsBuilder):
             else:
                 car_data = other.car_data
 
-
             # other players relative - to player - linear velocity, angular velocity, direction, distance and absolute euler angles
             ob.append(math.get_dist(car_data.linear_velocity, player_car.linear_velocity) * self.POS_STD)
             ob.append(math.get_dist(car_data.angular_velocity, player_car.angular_velocity) * self.ANG_STD)
@@ -83,7 +83,6 @@ class EgocentricObs(ObsBuilder):
         ob.append(state.boost_pads)
         boost_locations = common_values.BOOST_LOCATIONS
         ob.append()
-
 
         return np.concatenate(ob)
         
